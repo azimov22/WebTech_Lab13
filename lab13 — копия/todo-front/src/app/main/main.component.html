@@ -1,0 +1,51 @@
+<div class="ui piled segment" style="margin: 10px 20px 0px 20px">
+  <ng-container *ngIf="!isLogged">
+    <div>
+      <div>
+        <input type="text" placeholder="Login" [(ngModel)]="login"/>
+      </div>
+      <div>
+        <input type="password" placeholder="Password" [(ngModel)]="password"/>
+      </div>
+      <div>
+        <button (click)="auth()">Log in</button>
+      </div>
+    </div>
+  </ng-container>
+  <ng-container *ngIf="isLogged">
+    <div class="ui header">
+      <h1> Create Task List: </h1>
+    </div>
+    <div class="ui input">
+      <input type="text" [(ngModel)]="name" />
+    </div>
+    <button class="ui green button" style="margin-left: 10px" (click)="createTaskList()">Create</button>
+    <table class=" ui table">
+      <tr>
+        <td>ID</td>
+        <td>Name</td>
+        <td>Tasks</td>
+        <td>Actions</td>
+      </tr>
+      <tr *ngFor="let taskList of taskLists">
+        <td>{{taskList.id}}</td>
+        <td>
+          <div class="ui input">
+            <input type="text" class="ui input" [(ngModel)] = "taskList.name" />
+          </div>
+        </td>
+        <td>
+          <a routerLink="/task_lists/{{taskList.id}}/tasks">Tasks</a>
+        </td>
+        <td>
+          <div class="ui green button" (click)="updateTaskList(taskList)"> Изменить</div>
+          <div class="ui red button" (click)="deleteTaskList(taskList)"> Удалить</div>
+        </td>
+      </tr>
+    </table>
+    <div>
+      <button (click)="logout()">Log out</button>
+    </div>
+  </ng-container>
+</div>
+

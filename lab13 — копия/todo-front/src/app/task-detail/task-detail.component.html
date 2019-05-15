@@ -1,0 +1,25 @@
+<div class="ui piled segment" style="padding: auto; margin: 10px 20px 0px 20px;">
+  <i class="chevron circle left big icon"  (click)="navigateBack()"></i>
+  <table class="ui table">
+    <tr>
+      <td>ID</td>
+      <td>{{task.id}} </td>
+    </tr>
+    <tr>
+      <td>Name</td>
+      <td>{{task.name}} </td>
+    </tr>
+    <tr>
+      <td>Status</td>
+      <td>{{task.status}} </td>
+    </tr>
+    <tr>
+      <td>Created At</td>
+      <td>{{task.created_at | date:'yyyy-MM-dd HH:mm:ss'}} </td>
+    </tr>
+    <tr>
+      <td>Due on</td>
+      <td>{{task.due_on | date:'yyyy-MM-dd HH:mm:ss'}} </td>
+    </tr>
+  </table>
+</div>
